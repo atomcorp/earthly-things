@@ -25,7 +25,6 @@ class Stocks extends Component {
   }
 
   storeData(data) {
-    console.log(data);
     this.data = data;
   }
 
@@ -44,11 +43,15 @@ class Stocks extends Component {
   render() {
     return (
       <Page>
-        {
-          this.state.loading
-          ? <div>Loading</div>
-          : this.renderStocks()
-        }
+        <div className="stocks__wrapper">
+          <div className="stocks">
+          {
+            this.state.loading
+            ? <div>Loading</div>
+            : this.renderStocks()
+          }
+          </div>
+        </div>
 
       </Page>
     );

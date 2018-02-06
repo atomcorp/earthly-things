@@ -1,28 +1,91 @@
-.App {
+/* https://codepen.io/lewismcarey/pen/GJZVoG */
+
+.container {
+  height: 100vh;
+  width: 100vw;
+  background: #121111; /* Old Browsers */
+  background: #121111; /* Old Browsers */
+  background: -webkit-linear-gradient(top,#121111,#141616); /*Safari 5.1-6*/
+  background: -o-linear-gradient(top,#121111,#141616); /*Opera 11.1-12*/
+  background: -moz-linear-gradient(top,#121111,#141616); /*Fx 3.6-15*/
+  background: linear-gradient(to bottom, #121111, #141616); /*Standard*/  font-weight: 700;
+  text-shadow: 0px 0px 5px;
+}
+
+@-webkit-keyframes ticker {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+@keyframes ticker {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+.stocks__wrapper {
+  
+  position: fixed;
+  top: 50%;
+  transform: translate3d(0, -50%, 0);
+  width: 100%;
+  overflow: hidden;
+  background-color: rgba(#000, 0.9); 
+  padding-left: 100%; 
+  backface-visibility: hidden;
+}
+
+.stocks {
+  display: inline-block;
+  line-height: 4rem;  
+  white-space: nowrap; 
+  padding-right: 100%; 
+  backface-visibility: hidden;
+  
+  -webkit-animation-iteration-count: infinite; 
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+ -webkit-animation-name: ticker;
+         animation-name: ticker;
+  -webkit-animation-duration: 600s;
+          animation-duration: 600s;
+  
+
+  
+}
+
+.stock {
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+
+  display: inline-block;
+  
+  padding: 0 2rem;
+  font-size: 2rem;
+}
+
+.stock__content {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-columns: 50% 50%;
   text-align: center;
+  grid-column-gap: 5px;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}

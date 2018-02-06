@@ -1,7 +1,8 @@
 export const recieveStocksArray = (data: Array) => {
-  return cleanseData(parseData(data));
+  return shuffle(cleanseData(parseData(data)));
 }
 
+// TODO: accept "0.00" inputs
 const cleanseData = (data) => {
   return data.reduce((acc, val) => {
     if (
@@ -48,5 +49,17 @@ const parseChange = (string: string) => {
 }
 
 const parsePercentage = (total, difference) => {
-  return ((difference / total) * 100).toPrecision(4) + '%';
+  return ((Number(difference) / Number(total)) * 100).toPrecision(4) + '%';
+}
+
+// https://stackoverflow.com/a/6274381/2368141
+function shuffle(a) {
+  var j, x, i;
+  for (i = a.length - 1; i > 0; i--) {
+    j = Math.floor(Math.random() * (i + 1));
+    x = a[i];
+    a[i] = a[j];
+    a[j] = x;
+  }
+  return a;
 }
