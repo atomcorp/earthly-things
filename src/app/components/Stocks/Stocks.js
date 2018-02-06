@@ -1,21 +1,57 @@
-import React from 'react';
+import React, { Component } from 'react';
+import Stock from '../Stock/Stock.js';
 import { Page } from '../../container/index';
 import { data as stocksData } from '../../data/stocks.js';
 import { recieveStocksArray } from './parseStocks.js';
 
-const data = new Promise((resolve, reject) => {
-  resolve(stocksData);
-});
+class Stocks extends Component {
 
-data.then((resolved) => {
-  console.log(recieveStocksArray(resolved.feed.entry));
-});
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: true
+    }
+    this.loadData();
+    this.data = [];
+  }
 
+  loadData() {
+    new Promise((resolve, reject) => {
+      resolve(stocksData);
+    }).then((resolved) => {
+      this.storeData(recieveStocksArray(resolved.feed.entry));
+      this.updateLoading();
+    });
+  }
 
-const Stocks = () => {
-  return (
-    <Page>Stocks</Page>
-  );
+  storeData(data) {
+    this.data = data;
+  }
+
+  updateLoading() {
+    this.setState({
+      loading: false
+    })
+  }
+
+  renderStocks() {
+    return this.data.reduce((acc, val, index) => {
+      return [...acc, <Stock key={index} values={val} />];
+    }, [])
+  }
+
+  render() {
+    return (
+      <Page>
+        {
+          this.state.loading
+          ? <div>Loading</div>
+          : this.renderStocks()
+        }
+
+      </Page>
+    );
+  }
 }
 
 export default Stocks;
