@@ -20,10 +20,12 @@ const parseData = (data) => {
     const title = parseName(val.title['$t']);
     const price = parsePrice(val.content['$t']);
     const change = parseChange(val.content['$t']);
+    const percentage = parsePercentage(price, change);
     return [...acc, {
       title,
       price,
-      change
+      change,
+      percentage
     }]
   }, []);
 }
@@ -43,4 +45,8 @@ const parseChange = (string: string) => {
   return string.slice( 
     string.lastIndexOf('change: ') + 8
   );
+}
+
+const parsePercentage = (total, difference) => {
+  return ((difference / total) * 100).toPrecision(4) + '%';
 }

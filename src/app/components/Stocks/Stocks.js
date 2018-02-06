@@ -25,6 +25,7 @@ class Stocks extends Component {
   }
 
   storeData(data) {
+    console.log(data);
     this.data = data;
   }
 
