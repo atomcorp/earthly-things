@@ -1,0 +1,17 @@
+.stock {
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+
+  display: inline-block;
+  
+  padding: 0 2rem;
+  font-size: 2rem;
+}
+
+// .stock__content {
+//   display: grid;
+//   grid-template-columns: 50% 50%;
+//   grid-template-columns: 50% 50%;
+//   text-align: center;
+//   grid-column-gap: 5px;
+// }

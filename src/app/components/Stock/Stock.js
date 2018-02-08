@@ -1,16 +1,13 @@
 import React from 'react';
+import styles from './Stock.module.css';
 
 const Stock = ({values}) => {
   return (
-    <div className="stock" style={{color: assignColour(values.change)}}>
-      <div className="stock__content">
-        <span>{values.title}</span>
-        <span>{values.change}</span>
-        <span>{values.price}</span>
-        <span>{values.percentage}</span>
-      </div>
-      
-    
+    <div className={styles.stock} style={{color: assignColour(values.change)}}>
+      {values.title}
+      {values.change}
+      {values.price}
+      {values.percentage}    
     </div>
   )
 }
