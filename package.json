@@ -9,13 +9,16 @@
     "build": "webpack --config webpack.prod.js"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
+    "babel-eslint": "^8.2.2",
     "babel-jest": "^22.2.2",
     "babel-preset-env": "^1.6.1",
     "babel-preset-es2015": "^6.24.1",
+    "babel-preset-flow": "^6.23.0",
     "clean-webpack-plugin": "^0.1.18",
     "css-loader": "^0.28.9",
-    "eslint": "^4.17.0",
+    "eslint": "^4.18.1",
     "eslint-config-google": "^0.9.1",
     "extract-text-webpack-plugin": "^3.0.2",
     "html-webpack-plugin": "^2.30.1",
@@ -32,6 +35,7 @@
   "eslintIgnore": [
     "webpack.*",
     "public",
-    "*.test.js"
+    "*.test.js",
+    "node_modules"
   ]
 }

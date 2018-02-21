@@ -1,8 +1,8 @@
+// @flow
 
-
-export const recieveStocksArray = (data) => {
+export const recieveStocksArray = (data: Array) => {
   return shuffle(cleanseData(parseData(data)));
-}
+};
 
 // TODO: accept "0.00" inputs
 const cleanseData = (data) => {
@@ -16,7 +16,7 @@ const cleanseData = (data) => {
     }
     return [...acc, val];
   }, []);
-}
+};
 
 const parseData = (data) => {
   return data.reduce((acc, val) => {
@@ -28,31 +28,31 @@ const parseData = (data) => {
       title,
       price,
       change,
-      percentage
+      percentage,
     }]
   }, []);
-}
+};
 
 const parseName = (name) => {
   return name.split('.', 1)[0];
-}
+};
 
 const parsePrice = (string) => {
   return string.slice(
     (string.lastIndexOf('price: ') + 7), 
     string.lastIndexOf(', change')
   );
-}
+};
 
 const parseChange = (string) => {
   return string.slice( 
     string.lastIndexOf('change: ') + 8
   );
-}
+};
 
 const parsePercentage = (total, difference) => {
   return ((Number(difference) / Number(total)) * 100).toPrecision(4) + '%';
-}
+};
 
 // https://stackoverflow.com/a/6274381/2368141
 function shuffle(a) {
