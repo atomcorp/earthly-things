@@ -1,3 +1,7 @@
+/**
+ * Injects our app into the document
+ */
+
 import { data } from './components/data.js';
 
 const root = document.getElementById('root');
