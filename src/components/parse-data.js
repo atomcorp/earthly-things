@@ -1,4 +1,6 @@
-export const recieveStocksArray = (data: Array) => {
+
+
+export const recieveStocksArray = (data) => {
   return shuffle(cleanseData(parseData(data)));
 }
 
@@ -31,18 +33,18 @@ const parseData = (data) => {
   }, []);
 }
 
-const parseName = (name: string) => {
+const parseName = (name) => {
   return name.split('.', 1)[0];
 }
 
-const parsePrice = (string: string) => {
+const parsePrice = (string) => {
   return string.slice(
     (string.lastIndexOf('price: ') + 7), 
     string.lastIndexOf(', change')
   );
 }
 
-const parseChange = (string: string) => {
+const parseChange = (string) => {
   return string.slice( 
     string.lastIndexOf('change: ') + 8
   );

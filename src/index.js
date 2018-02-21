@@ -1,4 +1,4 @@
-import { data } from './app/data/stocks.js';
+import { data } from './components/data.js';
 
 const root = document.getElementById('root');
 root.innerText = 'Hello world';
