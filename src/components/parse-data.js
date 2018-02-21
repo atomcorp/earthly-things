@@ -1,15 +1,7 @@
 // @flow
+import { StocksType, StockType, DataType } from './flow-types';
 
-type StocksType = Array<StockType>
-
-type StockType = {
-  change: string,
-  percentage: string,
-  price: string,
-  title: string
-}
-
-export const recieveStocksArray = (data: Array<mixed>): StocksType => {
+export const recieveStocksArray = (data: Array<DataType>): StocksType => {
   return shuffle(cleanseData(parseData(data)));
 };
 
@@ -27,7 +19,7 @@ const cleanseData = (data: StocksType): StocksType => {
   }, []);
 };
 
-const parseData = (data: Array<mixed>): StocksType => {
+const parseData = (data: Array<DataType>): StocksType => {
   return data.reduce((acc, val) => {
     const title = parseName(val.title['$t']);
     const price = parsePrice(val.content['$t']);
