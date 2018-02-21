@@ -1,14 +1,16 @@
+// @flow
 export const recieveStocksArray = (data: Array) => {
   return shuffle(cleanseData(parseData(data)));
 }
 
 // TODO: accept "0.00" inputs
 const cleanseData = (data) => {
-  return data.reduce((acc, val) => {
+  return data.reduce((acc, val, index) => {
     if (
       !val.title ||
       val.price === "0" ||
-      val.change === "#N/A"
+      val.change === "#N/A" ||
+      index > 10
     ) {
       return [...acc];
     }

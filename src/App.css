@@ -43,14 +43,14 @@
 
 .stocks__wrapper {
   
-  position: fixed;
+  /* position: fixed;
   top: 50%;
   transform: translate3d(0, -50%, 0);
   width: 100%;
   overflow: hidden;
   background-color: rgba(#000, 0.9); 
   padding-left: 100%; 
-  backface-visibility: hidden;
+  backface-visibility: hidden; */
 }
 
 .stocks {
@@ -66,8 +66,8 @@
           animation-timing-function: linear;
  -webkit-animation-name: ticker;
          animation-name: ticker;
-  -webkit-animation-duration: 600s;
-          animation-duration: 600s;
+  -webkit-animation-duration: 100s;
+          animation-duration: 100s;
   
 
   
