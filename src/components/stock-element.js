@@ -2,9 +2,9 @@
 /**
  * Create a HTML Element to hold a stock
  */
-import { StockType } from './flow-types';
+import { StockType, StockElementType } from './flow-types';
 
-export const stockElement = (stock: StockType): HTMLDivElement => {
+export const stockElement = (stock: StockType): StockElementType => {
   const el = document.createElement('div');
   el.classList.add('stock');
   const { change, percentage, price, title} = stock;

@@ -2,7 +2,7 @@
 import { StocksType, StockType, DataType } from './flow-types';
 
 export const recieveStocksArray = (data: Array<DataType>): StocksType => {
-  return shuffle(cleanseData(parseData(data)));
+  return indexStocks(shuffle(cleanseData(parseData(data))));
 };
 
 // TODO: accept "0.00" inputs
@@ -20,7 +20,7 @@ const cleanseData = (data: StocksType): StocksType => {
 };
 
 const parseData = (data: Array<DataType>): StocksType => {
-  return data.reduce((acc, val) => {
+  return data.reduce((acc, val, i) => {
     const title = parseName(val.title['$t']);
     const price = parsePrice(val.content['$t']);
     const change = parseChange(val.content['$t']);
@@ -53,6 +53,18 @@ const parseChange = (string: string): string => {
 
 const parsePercentage = (total: string, difference: string): string => {
   return ((Number(difference) / Number(total)) * 100).toPrecision(4) + '%';
+};
+
+const indexStocks = (stocks: StocksType) => {
+  return stocks.map((stock, i) => {
+    return Object.assign(
+      {},
+      stock,
+      {
+        id: i,
+      },
+    );
+  });
 };
 
 // Copy from https://stackoverflow.com/a/6274381/2368141

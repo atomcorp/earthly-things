@@ -8,4 +8,10 @@ import { stockElement } from './components/stock-element.js';
 const root = document.getElementById('root');
 root.innerText = 'Hello world';
 
-data.then(res => root.appendChild(stockElement(res[0])));
+const tempPrint = (stockData) => {
+  const container = document.createDocumentFragment();
+  stockData.forEach(stock => container.appendChild(stockElement(stock)));
+  return container;
+};
+
+data.then(res => root.appendChild(tempPrint(res)));

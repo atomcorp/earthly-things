@@ -34,6 +34,21 @@ export type StockType = {
   change: string,
   percentage: string,
   price: string,
-  title: string
+  title: string,
+  index: number
 }
+
+export type StateType = {
+  data: StocksType,
+  activeStock: ActiveStocksType,
+  cache: StockCache
+}
+
+export type StockCache = {
+  [id: string]: HTMLElement
+}
+
+export type ActiveStocksType = Array<number>;
+
+export type StockElementType = HTMLDivElement;
 
