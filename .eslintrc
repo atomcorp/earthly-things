@@ -1,3 +1,19 @@
 {
-  "extends": "react-app"
+  "extends": "google",
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "sourceType": "module",
+    "allowImportExportEverywhere": false,
+    "codeFrame": false,
+    "ecmaVersion": 6,
+    "ecmaFeatures": {
+      "modules": true,
+      "experimentalObjectRestSpread": true
+    }
+  },
+  "rules": {
+    "linebreak-style": 0,
+    "object-curly-spacing": 0,
+    "arrow-parens": 0
+  }
 }

@@ -1,8 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+/**
+ * Injects our app into the document
+ */
 
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+import { data } from './components/data.js';
+import { stockElement } from './components/stock-element.js';
+
+const root = document.getElementById('root');
+root.innerText = 'Hello world';
+
+const tempPrint = (stockData) => {
+  const container = document.createDocumentFragment();
+  stockData.forEach(stock => container.appendChild(stockElement(stock)));
+  return container;
+};
+
+data.then(res => root.appendChild(tempPrint(res)));
