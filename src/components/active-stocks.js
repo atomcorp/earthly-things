@@ -5,7 +5,9 @@
  */
 import { ActiveStocksType, StocksType } from './flow-types.js';
 
-export const shiftArray = (activeStocks: ActiveStocksType): ActiveStocksType => {
+export const shiftArray = (
+  activeStocks: ActiveStocksType
+): ActiveStocksType => {
   return activeStocks.slice(1, activeStocks.length);
 };
 
@@ -26,12 +28,30 @@ export const getNextId = (
   return data[0].index;
 };
 
+const buildNewActiveStock = (
+  activeStocks: ActiveStocksType,
+  data: StocksType
+) => {
+  return data.reduce((acc, stock, index) => {
+    if (index < 10) {
+      return [...acc, stock.index];
+    }
+  }, []);
+};
+
+const amendActiveStock = (
+  activeStocks: ActiveStocksType,
+  data: StocksType
+) => {
+  return mergeArray(shiftArray(activeStocks), getNextId(activeStocks, data));
+};
+
 export const handleActiveStocks = (
   activeStocks: ActiveStocksType,
   data: StocksType
 ): ActiveStocksType => {
   if (!activeStocks.length) {
-    return data.slice(0, 9);
+    return buildNewActiveStock(activeStocks, data);
   }
-  return mergeArray(shiftArray(activeStocks), getNextId(activeStocks, data));
+  return amendActiveStock(activeStocks, data);
 };
