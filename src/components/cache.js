@@ -12,13 +12,16 @@ export const handleCaching = (
   stock: StockType,
   cache: StockCache
 ): StockCache => {
-  if (!stockInCache(stock.title, cache)) {
-    return [...cache, stockElement(stock)];
+  if (!cache[stock.title]) {
+    return Object.assign(
+      {}, stockElement(stock), cache
+    );
+    // return [...cache, stockElement(stock)];
   }
   return cache;
 };
 
-const stockInCache = (
+export const stockInCache = (
   title: string,
   cache: StockCache
 ): StockCache | void => {
