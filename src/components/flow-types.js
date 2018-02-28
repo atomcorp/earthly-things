@@ -35,7 +35,7 @@ export type StockType = {
   percentage: string,
   price: string,
   title: string,
-  index: number
+  id: number
 }
 
 export type StateType = {

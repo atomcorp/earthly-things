@@ -22,20 +22,22 @@ export const getNextId = (
   activeStocks: ActiveStocksType,
   data: StocksType
 ): number => {
-  if (data[activeStocks[activeStocks.length - 1] + 1]) {
-    return data[activeStocks[activeStocks.length - 1] + 1].index;
+  const lastId = activeStocks.length - 1;
+  // if last activeStocks id is in data
+  if (data[activeStocks[lastId] + 1]) {
+    return data[activeStocks[lastId] + 1].id;
   }
-  return data[0].index;
+  return data[0].id;
 };
 
 const buildNewActiveStock = (
-  activeStocks: ActiveStocksType,
   data: StocksType
 ) => {
   return data.reduce((acc, stock, index) => {
     if (index < 10) {
-      return [...acc, stock.index];
+      return [...acc, stock.id];
     }
+    return acc;
   }, []);
 };
 
@@ -51,7 +53,7 @@ export const handleActiveStocks = (
   data: StocksType
 ): ActiveStocksType => {
   if (!activeStocks.length) {
-    return buildNewActiveStock(activeStocks, data);
+    return buildNewActiveStock(data);
   }
   return amendActiveStock(activeStocks, data);
 };

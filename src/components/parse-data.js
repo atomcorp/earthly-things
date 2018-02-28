@@ -2,7 +2,6 @@
 import { StocksType, StockType, DataType } from './flow-types';
 
 export const recieveStocksArray = (data: Array<DataType>): StocksType => {
-  console.log(data);
   return indexStocks(shuffle(cleanseData(parseData(data))));
 };
 

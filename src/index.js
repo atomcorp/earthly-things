@@ -3,15 +3,19 @@
  */
 
 import { data } from './components/data.js';
-import { stockElement } from './components/stock-element.js';
+import { store } from './store/store.js';
+import { render } from './components/render-stocks.js';
 
 const root = document.getElementById('root');
-root.innerText = 'Hello world';
+// root.innerText = 'Hello world';
 
-const tempPrint = (stockData) => {
-  const container = document.createDocumentFragment();
-  stockData.forEach(stock => container.appendChild(stockElement(stock)));
-  return container;
-};
+// const tempPrint = (stockData) => {
+//   const container = document.createDocumentFragment();
+//   stockData.forEach(stock => container.appendChild(stockElement(stock)));
+//   return container;
+// };
 
-data.then(res => root.appendChild(tempPrint(res)));
+data.then(res => {
+  store.updateData(res);
+  render(root);
+});

@@ -20,6 +20,6 @@ test('Parse change from string', () => {
   expect(parseChange(testString)).toEqual('55.2');
 });
 
-test('Parse change from string', () => {
+test('Parse percentage', () => {
   expect(parsePercentage('215', '3')).toEqual('1.395%');
 });
