@@ -6,6 +6,7 @@ import { data } from './components/data.js';
 import { store } from './store/store.js';
 import { render } from './components/render-stocks.js';
 import { stockContainerElement } from './components/elements.js';
+import './style/index.scss';
 
 const root = document.getElementById('root');
 

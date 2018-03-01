@@ -22,11 +22,11 @@ const appendStocks = (root) => {
     fragment.appendChild(stockElement(store.returnStore().data[id]));
   });
   root.appendChild(fragment);
-  // setTimeout(() => {
-  //   window.requestAnimationFrame(() => {
-  //     appendStocks(root);
-  //   });
-  // }, 500);
+  setTimeout(() => {
+    window.requestAnimationFrame(() => {
+      appendStocks(root);
+    });
+  }, 3000);
 };
 
 export const render = appendStocks;

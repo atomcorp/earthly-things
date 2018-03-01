@@ -1,5 +1,5 @@
 /**
- * Holds the presentational elements 
+ * Holds the presentational elements
  */
 
 export const stockContainerElement = (root) => {
