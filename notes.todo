@@ -1,0 +1,3 @@
+Todo: 
+  ☐ better performance if dom refresh into chunks, eg. 3 * 10 stocks, first gets replaced when gone off screen
+  
