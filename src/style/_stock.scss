@@ -1,5 +1,7 @@
 .stock {
-  flex: 1;
+  // use static width, rather than fluid (flex: 1)
+  // total width changes as different stocks are added/replaced
+  width: 250px;
   animation: slide-left 3s linear;
   backface-visibility: hidden;
   font-weight: 700;

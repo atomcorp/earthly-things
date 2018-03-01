@@ -23,8 +23,8 @@ export const parseData = (data: Array<DataType>): StocksType => {
   return data.reduce((acc, val, i) => {
     const title = parseName(val.title['$t']);
     const price = parsePrice(val.content['$t']);
-    const change = parseChange(val.content['$t']);
-    const percentage = parsePercentage(price, change);
+    const change = ifPositive(parseChange(val.content['$t']));
+    const percentage = ifPositive(parsePercentage(price, change));
     return [...acc, {
       title,
       price,
@@ -53,6 +53,13 @@ export const parseChange = (string: string): string => {
 
 export const parsePercentage = (total: string, difference: string): string => {
   return ((Number(difference) / Number(total)) * 100).toPrecision(4) + '%';
+};
+
+const ifPositive = (value: string): string => {
+  if (parseFloat(value) > 0) {
+    return '+' + value;
+  }
+  return value;
 };
 
 const indexStocks = (stocks: StocksType) => {
