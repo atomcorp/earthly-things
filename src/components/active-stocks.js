@@ -30,11 +30,12 @@ export const getNextId = (
   return data[0].id;
 };
 
+
 const buildNewActiveStock = (
   data: StocksType
 ) => {
   return data.reduce((acc, stock, index) => {
-    if (index < 10) {
+    if (index < 5) {
       return [...acc, stock.id];
     }
     return acc;
