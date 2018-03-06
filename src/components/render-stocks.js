@@ -3,13 +3,13 @@
  * set loop,
  * change and swap them over
  */
-
+import morph from 'nanomorph';
 import { store } from '../store/store.js';
 import { handleActiveStocks } from '../components/active-stocks.js';
-import { stockElement } from './stock-element.js';
+import { checkCache } from './cache.js';
 
 const appendStocks = (root) => {
-  root.innerHTML = '';
+  // root.innerHTML = '';
   // get latest stocks & update
   const activeStocks = handleActiveStocks(
     store.returnStore().activeStock,
@@ -17,16 +17,20 @@ const appendStocks = (root) => {
   );
   store.updateStocks(activeStocks);
   // draw
-  const fragment = document.createDocumentFragment();
+  const clone = root.cloneNode(true);
+  clone.innerHTML = '';
   activeStocks.forEach((id) => {
-    fragment.appendChild(stockElement(store.returnStore().data[id]));
+    clone.appendChild(
+      checkCache(store.returnStore().data[id], store.returnStore().cache)
+    );
   });
-  root.appendChild(fragment);
-  // setTimeout(() => {
-  //   window.requestAnimationFrame(() => {
-  //     appendStocks(root);
-  //   });
-  // }, 3000);
+  morph(root, clone);
+  // root.appendChild(fragment);
+  setTimeout(() => {
+    window.requestAnimationFrame(() => {
+      appendStocks(root);
+    });
+  }, 3000);
 };
 
 export const render = appendStocks;

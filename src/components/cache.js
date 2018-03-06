@@ -2,29 +2,22 @@
 /**
  * Check if a Stock element has already been created,
  * if not create and add to cache,
- * otherwise retreive cache
+ * otherwise retreive element from cache
  */
 
 import { StockType, StockCache } from './flow-types';
 import { stockElement } from './stock-element.js';
+import { store } from '../store/store.js';
 
-export const handleCaching = (
+export const checkCache = (
   stock: StockType,
   cache: StockCache
 ): StockCache => {
-  if (!cache[stock.title]) {
-    return Object.assign(
-      {}, stockElement(stock), cache
-    );
-    // return [...cache, stockElement(stock)];
+  if (!cache[stock.id]) {
+    const newStockElement = stockElement(stock);
+    store.updateCache({ [stock.id]: newStockElement });
+    return newStockElement;
   }
-  return cache;
-};
-
-export const stockInCache = (
-  title: string,
-  cache: StockCache
-): StockCache | void => {
-  return cache[title];
+  return cache[stock.id];
 };
 

@@ -11,7 +11,7 @@ export const stockElement = (stock: StockType): StockElementType => {
   Number(change) > 0
     ? el.classList.add('stock--up')
     : el.classList.add('stock--down');
-  el.dataset.id = id;
+  el.id = id;
   el.appendChild(stockItemElement(title, 'stock__title'));
   el.appendChild(stockItemElement(price, 'stock__price'));
   el.appendChild(stockItemElement(change, 'stock__change'));

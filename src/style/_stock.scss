@@ -1,12 +1,14 @@
 .stock {
   // use static width, rather than fluid (flex: 1)
   // total width changes as different stocks are added/replaced
- flex: 1 1 300px;
+  flex: 1 1 300px;
   animation: slide-left 3s linear;
   backface-visibility: hidden;
   font-weight: 700;
   font-size: 36px;
   text-shadow: 0 3px 8px, 3px 0 8px, -3px 0 8px;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
 }
 
 .stock--up {

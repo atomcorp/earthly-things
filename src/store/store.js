@@ -18,10 +18,22 @@ const buildStore = () => {
   const updateData = (newData) => {
     store = Object.assign({}, store, { data: newData });
   };
+  const updateCache = newStock => {
+    const oldCache = store.cache;
+    const newCache = Object.assign({}, oldCache, newStock);
+    store = Object.assign(
+      {},
+      store,
+      {
+        cache: newCache,
+      }
+    );
+  };
   return {
     returnStore: returnStore,
     updateStocks: updateStocks,
     updateData: updateData,
+    updateCache: updateCache,
   };
 };
 
