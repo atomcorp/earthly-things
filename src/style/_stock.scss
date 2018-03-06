@@ -6,15 +6,15 @@
   backface-visibility: hidden;
   font-weight: 700;
   font-size: 36px;
-  text-shadow: 0px 0px 5px;
+  text-shadow: 0 3px 8px, 3px 0 8px, -3px 0 8px;
 }
 
 .stock--up {
-  color: green;
+  color: rgba(green, 0.7);
 }
 
 .stock--down {
-  color: red;
+  color: rgba(red, 0.7);
 }
 
 @keyframes slide-left {
