@@ -8,14 +8,15 @@
   will-change: transform;
   transform: translate3d(0, 0, 0);
   grid-gap: 15px;
-  padding: 50px;
+  padding: 0 50px;
   box-sizing: content-box;
   @media (min-width: 480px) {
     font-size: 3.4rem;
-    padding: 100px;
+    padding: 0 100px;
   }
   @media (min-width: 768px) {
     font-size: 4.2rem;
+    padding: 0 150px;
   }
   @media (min-width: 1200px) {
     font-size: 6.4rem;

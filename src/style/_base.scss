@@ -7,3 +7,17 @@ body {
 * {
   box-sizing: border-box;
 }
+
+.help {
+  color: #fff;
+  position: absolute;
+  z-index: 9;
+  font-size: 24px;
+  bottom: 0;
+  right: 0;
+  padding: 15px 30px;
+  a {
+    color: #fff;
+    text-decoration: none;
+  }
+}

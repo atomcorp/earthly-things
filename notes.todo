@@ -1,5 +1,7 @@
 Todo: 
   ✘ better performance if dom refresh into chunks, eg. 3 * 10 stocks, first gets replaced when gone off screen @cancelled(18-03-06 22:33)
-  ☐ style the stocks
+  ✔ style the stocks @done(18-03-07 22:58)
   ✔ add polyfill for js animation @done(18-03-06 22:43)
   ☐ add check for browser width to work out how many stocks to add
+  ☐ add help button
+  ☐ add loading / fade in
