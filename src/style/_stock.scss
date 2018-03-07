@@ -1,43 +1,25 @@
 .stock {
   // use static width, rather than fluid (flex: 1)
   // total width changes as different stocks are added/replaced
-  min-width: 50%;
-  font-size: 34px;
+  font-size: 2.4rem;
   font-weight: 700;
   text-shadow: 0 3px 8px, 3px 0 8px, -3px 0 8px;
   backface-visibility: hidden;
   will-change: transform;
   transform: translate3d(0, 0, 0);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
   grid-gap: 15px;
-  padding: 0 50px;
-  @media (min-width: 640px) {
-    // flex: 1 0 460px;
-    font-size: 48px;
+  padding: 50px;
+  box-sizing: content-box;
+  @media (min-width: 480px) {
+    font-size: 3.4rem;
+    padding: 100px;
   }
-  @media (min-width: 800px) {
-    min-width: 50%;
-    font-size: 56px;
-  }
-  @media (min-width: 1000px) {
-    min-width: 33%;
-    font-size: 64px;
-    padding: 0 80px;
+  @media (min-width: 768px) {
+    font-size: 4.2rem;
   }
   @media (min-width: 1200px) {
-    min-width: 25%;
-    font-size: 72px;
+    font-size: 6.4rem;
   }
-}
-
-.stock__change {
-  text-align: right;
-}
-
-.stock__percentage {
-  text-align: right;
 }
 
 .stock--up {
