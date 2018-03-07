@@ -47,12 +47,12 @@ export const parsePrice = (string: string): string => {
 
 export const parseChange = (string: string): string => {
   return string.slice(
-    string.lastIndexOf('change: ') + 8
+    (string.lastIndexOf('change: ') + 8)
   );
 };
 
 export const parsePercentage = (total: string, difference: string): string => {
-  return ((Number(difference) / Number(total)) * 100).toPrecision(4) + '%';
+  return ((Number(difference) / Number(total)) * 100).toPrecision(3) + '%';
 };
 
 const ifPositive = (value: string): string => {

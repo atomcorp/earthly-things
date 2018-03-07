@@ -19,13 +19,11 @@ const buildStore = () => {
     store = Object.assign({}, store, { data: newData });
   };
   const updateCache = newStock => {
-    const oldCache = store.cache;
-    const newCache = Object.assign({}, oldCache, newStock);
     store = Object.assign(
       {},
       store,
       {
-        cache: newCache,
+        cache: Object.assign({}, store.cache, newStock),
       }
     );
   };

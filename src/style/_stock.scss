@@ -1,14 +1,43 @@
 .stock {
   // use static width, rather than fluid (flex: 1)
   // total width changes as different stocks are added/replaced
-  flex: 1 1 300px;
-  // animation: slide-left 3s linear;
-  backface-visibility: hidden;
+  min-width: 50%;
+  font-size: 34px;
   font-weight: 700;
-  font-size: 36px;
   text-shadow: 0 3px 8px, 3px 0 8px, -3px 0 8px;
+  backface-visibility: hidden;
   will-change: transform;
   transform: translate3d(0, 0, 0);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 15px;
+  padding: 0 50px;
+  @media (min-width: 640px) {
+    // flex: 1 0 460px;
+    font-size: 48px;
+  }
+  @media (min-width: 800px) {
+    min-width: 50%;
+    font-size: 56px;
+  }
+  @media (min-width: 1000px) {
+    min-width: 33%;
+    font-size: 64px;
+    padding: 0 80px;
+  }
+  @media (min-width: 1200px) {
+    min-width: 25%;
+    font-size: 72px;
+  }
+}
+
+.stock__change {
+  text-align: right;
+}
+
+.stock__percentage {
+  text-align: right;
 }
 
 .stock--up {
@@ -17,13 +46,4 @@
 
 .stock--down {
   color: rgba(red, 0.7);
-}
-
-@keyframes slide-left {
-  from {
-    transform: translate3d(0, 0, 0);
-  }
-  to {
-    transform: translate3d(-100%, 0, 0);    
-  }
 }
