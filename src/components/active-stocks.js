@@ -35,7 +35,7 @@ const buildNewActiveStock = (
   data: StocksType
 ) => {
   return data.reduce((acc, stock, index) => {
-    if (index < 8) {
+    if (index < 3) {
       return [...acc, stock.id];
     }
     return acc;
